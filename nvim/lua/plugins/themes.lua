@@ -9,6 +9,10 @@ return {
         },
     },
 
+    -- {
+    --     "joshdick/onedark.vim",
+    -- },
+
     -- 设置默认主题
     {
         "LazyVim/LazyVim",
