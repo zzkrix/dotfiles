@@ -14,11 +14,6 @@ return {
 
 				height = 0.85,
 				width = 0.85,
-
-				wo = {
-					-- winblend = 15,
-					winhighlight = "Normal:SnacksTerminalNormal,FloatBorder:SnacksTerminalBorder",
-				},
 			},
 		},
 	},

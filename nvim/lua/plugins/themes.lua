@@ -1,6 +1,5 @@
 return {
-	-- 透明度插件，开启所有主题的透明背景
-	{ "xiyaowong/transparent.nvim", lazy = false },
+	-- 安装主题
 
 	{ "ellisonleao/gruvbox.nvim" },
 
