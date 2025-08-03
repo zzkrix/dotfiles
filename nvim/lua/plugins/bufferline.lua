@@ -4,6 +4,7 @@ return {
 		opts = {
 			options = {
 				always_show_bufferline = true,
+				-- separator_style = "thick",
 				offsets = {
 					{
 						filetype = "neo-tree",
