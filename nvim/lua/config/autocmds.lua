@@ -75,6 +75,43 @@ local function set_transparency()
     highlight SnacksNotifierTrace guibg=NONE ctermbg=NONE
     highlight SnacksDashboard guibg=NONE ctermbg=NONE
     highlight SnacksInput guibg=NONE ctermbg=NONE
+
+    " 补全菜单 - 保留一些背景色以确保可读性
+    highlight Pmenu guibg=#1e1e2e guifg=#cdd6f4 ctermbg=236 ctermfg=251
+    highlight PmenuSel guibg=#585b70 guifg=#cdd6f4 ctermbg=240 ctermfg=251
+    highlight PmenuSbar guibg=#313244 ctermbg=237
+    highlight PmenuThumb guibg=#585b70 ctermbg=240
+
+    " LSP 补全相关
+    highlight CmpItemAbbrDeprecated guibg=NONE guifg=#7c7d83 gui=strikethrough
+    highlight CmpItemAbbrMatch guibg=NONE guifg=#82aaff
+    highlight CmpItemAbbrMatchFuzzy guibg=NONE guifg=#82aaff
+    highlight CmpItemMenu guibg=NONE guifg=#c792ea
+    highlight CmpItemKind guibg=NONE guifg=#f78c6c
+
+	" OneDark 主题补全菜单
+    highlight Pmenu guibg=#21252b guifg=#abb2bf ctermbg=235 ctermfg=249
+    highlight PmenuSel guibg=#2c313c guifg=#61afef ctermbg=236 ctermfg=75 gui=bold cterm=bold
+    highlight PmenuSbar guibg=#181a1f ctermbg=234
+    highlight PmenuThumb guibg=#4b5263 ctermbg=240
+
+    " CMP 补全相关颜色（OneDark 风格）
+    highlight CmpItemAbbrDeprecated guibg=NONE guifg=#5c6370 gui=strikethrough
+    highlight CmpItemAbbrMatch guibg=NONE guifg=#61afef gui=bold
+    highlight CmpItemAbbrMatchFuzzy guibg=NONE guifg=#61afef
+    highlight CmpItemMenu guibg=NONE guifg=#56b6c2
+    highlight CmpItemKind guibg=NONE guifg=#e06c75
+
+    " 补全类型颜色（符合 OneDark 配色）
+    highlight CmpItemKindFunction guifg=#e5c07b
+    highlight CmpItemKindMethod guifg=#c678dd
+    highlight CmpItemKindVariable guifg=#61afef
+    highlight CmpItemKindClass guifg=#e06c75
+    highlight CmpItemKindKeyword guifg=#c678dd
+    highlight CmpItemKindSnippet guifg=#98c379
+    highlight CmpItemKindConstant guifg=#98c379
+    highlight CmpItemKindEnum guifg=#e06c75
+    highlight CmpItemKindStruct guifg=#e06c75
   ]])
 end
 
