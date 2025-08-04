@@ -7,11 +7,23 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- karrabiner拦截`ctrl h/j/k/l`映射成了⬅️/⬇️/⬆️/➡️。
+--
+-- 要使`cmd k`在kiity终端和lazyvim terminal buffer中都有效，需要在kitty配置中增加一行
+-- map cmd+k send_text all \x0c
+--
+-- 若不使用karabiner的拦截可以不添加上面配置，同时放开下面的注释，达到同样效果。
+--
+-- vim.api.nvim_create_autocmd("TermOpen", {
+-- 	callback = function()
+-- 		vim.keymap.set("t", "<D-k>", "<C-l>", { buffer = true, noremap = true })
+-- 	end,
+-- })
+
 -- 设置neo-tree的被选中行背景色
 -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "gray", fg = "white" })
 -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#264F77", fg = "#ffffff" })
 vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#2E3A46", fg = "#ffffff" })
--- 在 ~/.config/nvim/lua/config/options.lua 或 init.lua 中添加
 
 -- 创建自动命令组来设置透明背景
 local function set_transparency()
