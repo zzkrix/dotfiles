@@ -8,7 +8,7 @@ local opt = vim.opt
 opt.wrap = true
 
 -- 禁用相对行号
--- opt.relativenumber = false
+opt.relativenumber = false
 
 -- 缩进 & tab & 空格
 opt.expandtab = false -- 使用真实的 tab 字符
