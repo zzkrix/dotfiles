@@ -19,7 +19,7 @@ return {
 			},
 			window = {
 				position = "left", -- left, right, top, bottom, float, current
-				width = 30, -- applies to left and right positions
+				width = 40, -- applies to left and right positions
 				height = 15, -- applies to top and bottom positions
 				-- auto_expand_width = true, -- expand the window when file exceeds the window width. does not work with position = "float"
 
