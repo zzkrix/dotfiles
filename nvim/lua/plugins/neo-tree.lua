@@ -1,6 +1,15 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	opts = {
+		default_component_configs = {
+			indent = {
+				with_expanders = false,
+				expander_collapsed = "",
+				expander_expanded = "",
+				expander_highlight = "NeoTreeExpander",
+			},
+		},
+
 		filesystem = {
 			filtered_items = {
 				visible = false, -- 显示隐藏文件
@@ -8,22 +17,23 @@ return {
 				-- show_hidden_count = true,
 				-- hide_gitignored = false,
 			},
-			window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup
-				-- position = "left", -- left, right, top, bottom, float, current
-				-- width = 40,    -- applies to left and right positions
-				-- height = 15,   -- applies to top and bottom positions
-				-- auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"
-				-- popup = {      -- settings that apply to float position only
+			window = {
+				position = "left", -- left, right, top, bottom, float, current
+				width = 30, -- applies to left and right positions
+				height = 15, -- applies to top and bottom positions
+				-- auto_expand_width = true, -- expand the window when file exceeds the window width. does not work with position = "float"
+
+				-- -- 悬浮窗显示
+				-- position = "float", -- left, right, top, bottom, float, current
+				-- popup = { -- settings that apply to float position only
 				-- 	size = {
 				-- 		height = "80%",
 				-- 		width = "50%",
 				-- 	},
 				-- 	position = "50%", -- 50% means center it
-				-- 	title = function(state) -- format the text that appears at the top of a popup window
+				-- 	title = function(state)
 				-- 		return "Neo-tree " .. state.name:gsub("^%l", string.upper)
 				-- 	end,
-				-- 	-- you can also specify border here, if you want a different setting from
-				-- 	-- the global popup_border_style.
 				-- },
 			}
 		},
