@@ -20,6 +20,13 @@
 -- 	end,
 -- })
 
+-- 设置自动保存
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+	pattern = { "*" },
+	command = "silent! wall",
+	nested = true,
+})
+
 -- 设置neo-tree的被选中行背景色
 -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "gray", fg = "white" })
 -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#264F77", fg = "#ffffff" })
