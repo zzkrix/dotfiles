@@ -8,9 +8,10 @@ return {
 
 				-- tabs模式下，只显示一个buffer标签
 				-- mode = "buffers", -- set to "tabs" to only show tabpages instead
+				-- 当前焦点所在buffer的提示符
 				indicator = {
-					-- icon = '|', -- this should be omitted if indicator style is not 'icon'
-					style = 'none', --'icon' | 'underline' | 'none',
+					icon = '💥', -- this should be omitted if indicator style is not 'icon'
+					style = 'icon', --'icon' | 'underline' | 'none',
 				},
 
 				-- indicator = {
