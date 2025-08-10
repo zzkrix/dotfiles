@@ -5,7 +5,7 @@
 local opt = vim.opt
 
 -- 长文本自动换行
-opt.wrap = true
+-- opt.wrap = true
 
 -- 禁用相对行号
 opt.relativenumber = false
@@ -24,3 +24,6 @@ vim.o.mouse = ""
 
 -- 撤销范围设置成仅限当前打开的buffer，关闭buffer后不再支持撤销
 vim.o.undofile = false
+
+-- 定义大文件阈值，减少nvim或插件对该类文件的渲染或索引，提高整体响应速度
+vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB

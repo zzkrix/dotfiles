@@ -141,4 +141,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 -- 立即应用（用于当前会话）
-set_transparency()
+-- set_transparency()
