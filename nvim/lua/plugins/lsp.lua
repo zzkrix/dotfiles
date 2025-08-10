@@ -33,6 +33,14 @@ return {
 				exclude = { "go" }, -- 排除这些文件类型
 			},
 
+			-- `<leader> cd` 错误信息加上边框
+			diagnostics = {
+				float = {
+					border = "rounded",
+				},
+			},
+
+			-- 管理lint规则
 			servers = {
 				gopls = {
 					settings = {
