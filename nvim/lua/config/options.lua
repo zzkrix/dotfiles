@@ -27,3 +27,6 @@ vim.o.undofile = false
 
 -- 定义大文件阈值，减少nvim或插件对该类文件的渲染或索引，提高整体响应速度
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
+
+-- 禁用所有动画（包括ctrl d/u滚动动画）
+-- vim.g.snacks_animate = false
