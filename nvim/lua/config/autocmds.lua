@@ -27,6 +27,32 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 	nested = true,
 })
 
+-- 只读模式打开目录之外的文件，防止误操作（更改标准库等操作）
+local function get_project_root()
+	local cwd = vim.fn.getcwd()
+	return cwd
+end
+
+local function is_in_project(filepath)
+	local project_root = get_project_root()
+	return filepath:find(project_root, 1, true) == 1
+end
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	callback = function()
+		local filepath = vim.fn.expand("%:p")
+		if filepath ~= "" and not is_in_project(filepath) then
+			vim.bo.readonly = true
+			vim.bo.modifiable = false
+			-- vim.notify("readonly: File out of current project!\n" .. filepath .. "\n" .. vim.fn.getcwd() .. "\n",
+			-- vim.log.levels.WARN)
+		else
+			vim.bo.readonly = false
+			vim.bo.modifiable = true
+		end
+	end
+})
+
 -- 设置neo-tree的被选中行背景色
 -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "gray", fg = "white" })
 -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#264F77", fg = "#ffffff" })
