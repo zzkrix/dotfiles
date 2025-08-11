@@ -16,9 +16,12 @@ return {
 			"ray-x/guihua.lua",
 		},
 
-		keys = {
-			{ "<leader>cg",  "",                      desc = "Golang" },
-			{ "<leader>cgf", "<cmd>GoFillStruct<cr>", desc = "Autofill struct" },
-		}
+		-- 查看 config/keymaps.lua
+		-- ⚠️ 统一使用 <leader>cf
+		--
+		-- keys = {
+		-- 	{ "<leader>cg",  "",                      desc = "Golang" },
+		-- 	{ "<leader>cgf", "<cmd>GoFillStruct<cr>", desc = "Autofill struct" },
+		-- }
 	},
 }

@@ -24,3 +24,15 @@ wk.add({
 	{ "<leader>zm", desc = "Fold more" },
 	{ "<leader>zr", desc = "Fold less" },
 })
+
+-- 结构体成员自动填充
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function()
+		vim.keymap.set("n", "<leader>cf", "<cmd>GoFillStruct<cr>", {
+			buffer = true,
+			desc = "Fill struct (Go)",
+			silent = true,
+		})
+	end,
+})
