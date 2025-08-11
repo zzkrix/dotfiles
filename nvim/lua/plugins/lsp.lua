@@ -1,4 +1,6 @@
 return {
+	{ import = "plugins/lsp/go" },
+
 	{
 		"neovim/nvim-lspconfig",
 
@@ -30,7 +32,10 @@ return {
 		opts = {
 			inlay_hints = {
 				enabled = true, -- 全局启用
-				exclude = { "go" }, -- 排除这些文件类型
+
+				-- 排除这些文件类型
+				-- ⚠️ 同时需要修改lsp目录下对应语言的inlay hints配置
+				exclude = { "go" },
 			},
 
 			-- `<leader> cd` 错误信息加上边框
