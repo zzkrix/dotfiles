@@ -1,13 +1,14 @@
 return {
-	-- 禁用conform的格式化，使用lsp格式化
-	{
-		"stevearc/conform.nvim",
-		enabled = false,
+    {
+        "stevearc/conform.nvim",
 
-		-- opts = {
-		--     formatters_by_ft = {
-		--         go = {}, -- 空数组，禁用conform对go的格式化
-		--     },
-		-- },
-	},
+        -- 禁用 conform 的格式化，使用 lsp 格式化
+        -- enabled = false,
+
+        -- opts = {
+        --     formatters_by_ft = {
+        --         go = {}, -- 空数组，禁用 conform 对 go 的格式化
+        --     },
+        -- },
+    },
 }

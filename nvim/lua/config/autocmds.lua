@@ -7,12 +7,12 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
--- karrabiner拦截`ctrl h/j/k/l`映射成了⬅️/⬇️/⬆️/➡️。
+-- karrabiner 拦截`ctrl h/j/k/l`映射成了⬅️/⬇️/⬆️/➡️。
 --
--- 要使`cmd k`在kiity终端和lazyvim terminal buffer中都有效，需要在kitty配置中增加一行
+-- 要使`cmd k`在 kiity 终端和 lazyvim terminal buffer 中都有效，需要在 kitty 配置中增加一行
 -- map cmd+k send_text all \x0c
 --
--- 若不使用karabiner的拦截可以不添加上面配置，同时放开下面的注释，达到同样效果。
+-- 若不使用 karabiner 的拦截可以不添加上面配置，同时放开下面的注释，达到同样效果。
 --
 -- vim.api.nvim_create_autocmd("TermOpen", {
 -- 	callback = function()
@@ -20,48 +20,48 @@
 -- 	end,
 -- })
 
--- 设置自动保存
-vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
-	pattern = { "*" },
-	command = "silent! wall",
-	nested = true,
-})
+-- -- 设置自动保存
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+-- 	pattern = { "*" },
+-- 	command = "silent! wall",
+-- 	nested = true,
+-- })
 
 -- 只读模式打开目录之外的文件，防止误操作（更改标准库等操作）
 local function get_project_root()
-	local cwd = vim.fn.getcwd()
-	return cwd
+    local cwd = vim.fn.getcwd()
+    return cwd
 end
 
 local function is_in_project(filepath)
-	local project_root = get_project_root()
-	return filepath:find(project_root, 1, true) == 1
+    local project_root = get_project_root()
+    return filepath:find(project_root, 1, true) == 1
 end
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	callback = function()
-		local filepath = vim.fn.expand("%:p")
-		if filepath ~= "" and not is_in_project(filepath) then
-			vim.bo.readonly = true
-			vim.bo.modifiable = false
-			-- vim.notify("readonly: File out of current project!\n" .. filepath .. "\n" .. vim.fn.getcwd() .. "\n",
-			-- vim.log.levels.WARN)
-		else
-			vim.bo.readonly = false
-			vim.bo.modifiable = true
-		end
-	end
+    callback = function()
+        local filepath = vim.fn.expand("%:p")
+        if filepath ~= "" and not is_in_project(filepath) then
+            vim.bo.readonly = true
+            vim.bo.modifiable = false
+            -- vim.notify("readonly: File out of current project!\n" .. filepath .. "\n" .. vim.fn.getcwd() .. "\n",
+            -- vim.log.levels.WARN)
+        else
+            vim.bo.readonly = false
+            vim.bo.modifiable = true
+        end
+    end,
 })
 
--- 设置neo-tree的被选中行背景色
+-- 设置 neo-tree 的被选中行背景色
 -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "gray", fg = "white" })
 -- vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#264F77", fg = "#ffffff" })
 vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = "#2E3A46", fg = "#ffffff" })
 
 -- 创建自动命令组来设置透明背景
 local function set_transparency()
-	-- 基础透明设置
-	vim.cmd([[
+    -- 基础透明设置
+    vim.cmd([[
     highlight Normal guibg=NONE ctermbg=NONE
     highlight NormalNC guibg=NONE ctermbg=NONE
     highlight SignColumn guibg=NONE ctermbg=NONE
@@ -162,8 +162,8 @@ end
 
 -- 在颜色方案加载后应用透明设置
 vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = set_transparency,
+    pattern = "*",
+    callback = set_transparency,
 })
 
 -- 立即应用（用于当前会话）
